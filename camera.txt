@@ -1,0 +1,16 @@
+User controls camera configuration on
+V4L2 Test Bench 13-Mar-2016.
+
+Brigtness : 4
+Contrast : 67
+Saturation : 255 (max)
+Hue : 0
+White Balance, Automatic : true
+Exposure : 48
+Gain, Automatic : false
+Gain : 12
+Horizontal flip : false
+Vertical flip : false
+Power line frequency : Disabled
+Sharpness : 0
+

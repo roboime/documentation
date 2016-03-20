@@ -1,0 +1,62 @@
+Etapas do core
+Desenvolvimento inicial:
+Jan, Jonnathan,
+Karl (comunicação com os robos fisicos),
+Bruno (Interface gráfica), 
+Luciano (Acompanhando o trabalho),
+
+inspiração codingame.com
+1:
+Enviar pacotes de tesste para movimentar o robo 0,
+Receber pacotes, verificar a taxa de recebimento,
+2:
+Refatorar,
+Receber os pacotes do juiz,
+Definir status do jogo (struct robo, ...)
+3:
+Refatorar,
+Filtragem rudimentar,
+Comunicação com processo filho, (std in, std out, std err),
+4:
+Refatorar,
+
+Interface intel-core:
+O core receberá da intel a vel de cada robo,
+Envia o estado do jogo,
+
+Intel:
+
+Protótipo: Jan
+Porta a inteligência de python para funcionar com o core,
+
+Módulos: 
+1 - Calculo de trajetória: Jonnathan
+Recebe o estado do jogo (onde está, para onde quer ir, quais obstáculos existem), retorna um conjunto de pontos (os pontos da trajetória),
+Cálculo de velocidade: Jonnathan
+2 - Campo potencial ( recebe o próximo ponto da trajetória, os obstáculos, o estado do jogo),
+Retorna o ponto mais próximo que é para o robo ir
+3 - Controle: (Jonnathan)
+Recebe a posição e velocidade atual, a posição desejada velocidade desejada(optional), e calcula a resposta na forma da velocidade final do robo
+4 - Cerebro
+Recebe o estado atual do jogo
+Calcula o estado futuro
+
+Etapas:
+Trabalhos de cada membro em paralelo,
+Deixar o primeiro fazer o time jogar como eles conseguirem,
+
+Etapas com novos membros:
+Apresentar o coding games,
+Dojo em coding games,
+
+Sugestão de etapas:
+
+Fazer o robo ir para um ponto,
+Fazer o robo ir para um ponto sem bater em outro robo,
+Fazer o robo chutar a bola,
+Fazer o robo chutar a bola pro gol,
+Fazer o robo pegar a bola em movimento,
+Fazer o robo chutar a bola em movimento para o gol,
+Fazer o robo passa a bola para outro robo,
+Fazer uma jogada de tabela,
+Fazer um time seguir as regras,
