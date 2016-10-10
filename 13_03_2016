@@ -1,0 +1,6 @@
+sudo apt-get install libpng12-dev
+
+sudo apt-get install libjpeg-dev
+
+qv4l2 /dev/video1
+
