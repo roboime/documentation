@@ -1,0 +1,159 @@
+\documentclass[12 pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{gensymb}
+\usepackage[brazilian]{babel}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{center}
+\textbf{\Large Ministério da Defesa}\\\
+\textbf{\Large Exército Brasileiro}\\
+\textbf{\Large Secretaria de Ciência e Educação}\\
+\textbf{\Large CETEX \& IME }\\\vfill
+\textbf{\huge Modelo do filtro de kalman para o futebol SSL}\\[2cm]%\vfill
+\end{center}
+\begin{center}
+\textbf{\Large 1 Ten Bramigk \& AspOf R2 Castelo Branco}\\\vfill
+
+\textbf{\large Rio de Janeiro}\\
+\textbf{\large 2016}
+\end{center}
+\end{titlepage}
+
+\section{Modelo}
+
+A primeira equação do estado que temos é:
+
+\begin{center}
+$\hat{x}_{k} = A \hat{x}_{k-1} + B u_{k}$
+\end{center}
+
+Na qual $\hat{x}_{k} = (\hat{r}_{x}, \hat{r}_{y}, \hat{r}_{\theta})^{T}_{k}$ é  estado real medido no tempo k,  $\hat{x}_{k-1} = (\hat{r}_{x}, \hat{r}_{y}, \hat{r}_{\theta})^{T}_{k-1}$ é o estado real medido no tempo k-1. $A = I_{3}$ e $B = \Delta tR_{z}(\theta)$ são matrizes apropriadas e ${u}_{k} = (v_{t}, v_{n}, v_{\omega})^{T}$ é o deslocamento somado a cada tempo $\Delta t_{k} - \Delta t_{k-1}$. Ou seja:
+\begin{center}
+$\begin{bmatrix}
+  \hat{r}_{x}\\        
+  \hat{r}_{y}\\[0.3em]
+  \hat{r}_{\theta} 
+ \end{bmatrix}_{k}
+ = I_{3}\begin{bmatrix}
+  \hat{r}_{x}\\        
+  \hat{r}_{y}\\[0.3em]
+  \hat{r}_{\theta} 
+ \end{bmatrix}_{k-1}
+ + R_{z}(\theta)\begin{bmatrix}
+  \Delta t v_{t}\\        
+  \Delta t v_{n}\\[0.3em]
+  \Delta t v_{\omega} 
+ \end{bmatrix}$
+\end{center}
+
+A segunda é:
+\begin{center}
+$z_{k} = C x_{k} + v_{k}$
+\end{center}
+
+Na qual $z_{k}$ é o estado medido, $C = I_{3}$ é uma constante, $x_{k}$ é o estado real em k e $v_{k}$ é o ruído da medição.
+
+A predição envolve também a fórmula $P_{k}=AP_{k-1}A^{T}$. Porém, $A = I_{3}$, então: $P_{k}=P_{k-1}$.
+
+A correção é dada pelas fórmulas recursivas: 
+\begin{center}
+$G_{k} = P_{k}C^{T}(CP{k}C^{T}+R)^{-1} $\\
+$\hat{x}_{k} = \hat{x}_{k} + G_{k}(z_{k} - C\hat{x}_{k})$\\
+$P_{k} = (I_{3} - G_{k}C)P_{k-1}$
+\end{center}
+
+Como $A=I_{3}$ e $C=I_{3}$, e já pensando em rearranjá-las, temos que as fórmulas ficam:
+\begin{center}
+$\hat{x}'_{k} = \hat{x}_{k-1} + Bu_{k}$ (1)\\
+$P_{k} = P_{k-1}$ (2)\\
+$G_{k} = P_{k}(P{k}+R)^{-1}$ (3)\\
+$\hat{x}_{k} = \hat{x}'_{k} + G_{k}(z_{k} - \hat{x}'_{k})$ (4)\\
+\end{center}
+
+Substituindo as equações (1), (2) e (3) na (4) temos que:
+\begin{center}
+$\hat{x}_{k} = \hat{x}_{k-1} + Bu_{k} + P_{k}(P{k}+R)^{-1}(z_{k} - (\hat{x}_{k-1} + Bu_{k}))$
+\end{center}
+
+Que é:
+\begin{center}
+$\hat{x}_{k} = \hat{x}_{k-1} + Bu_{k} + P_{k}(P{k}+R)^{-1}(z_{k} - \hat{x}_{k-1} - Bu_{k})$
+\end{center}
+
+Multiplicando por $P_{k}^{-1}$ pela esquerda temos que:
+
+\begin{center}
+$P_{k}^{-1}\hat{x}_{k} = P_{k}^{-1}(\hat{x}_{k-1} + Bu_{k}) + (P{k}+R)^{-1}(z_{k} - \hat{x}_{k-1} - Bu_{k})$
+\end{center}
+
+Supondo $P_{k} = pI_{3}$:
+
+\begin{center}
+$\frac{1}{p}\hat{x}_{k} = \frac{1}{p}(\hat{x}_{k-1} + Bu_{k}) + (pI_{3}+R)^{-1}(z_{k} - \hat{x}_{k-1} - Bu_{k})$
+\end{center}
+
+Multiplicando por $(pI_{3}+R)$ pela esquerda, temos que:
+
+\begin{center}
+$\frac{1}{p}(pI_{3}+R)\hat{x}_{k} = \frac{1}{p}(pI_{3}+R)(\hat{x}_{k-1} + Bu_{k}) + z_{k} - \hat{x}_{k-1} - Bu_{k}$
+\end{center}
+
+\begin{center}
+$(I_{3}+R/p)\hat{x}_{k} = (I_{3}+R/p)(\hat{x}_{k-1} + Bu_{k}) + z_{k} - \hat{x}_{k-1} - Bu_{k}$
+\end{center}
+
+\begin{center}
+$\hat{x}_{k} + \frac{R}{p}\hat{x}_{k} = \hat{x}_{k-1} + Bu_{k} +\frac{R}{p}\hat{x}_{k-1} + \frac{R}{p}Bu_{k} + z_{k} - \hat{x}_{k-1} - Bu_{k}$
+\end{center}
+
+Fazendo $R' = \frac{R}{p}$, temos:
+
+\begin{center}
+$\hat{x}_{k} + R'\hat{x}_{k} = R'\hat{x}_{k-1} + R'Bu_{k} + z_{k}$
+\end{center}
+
+
+\begin{center}
+$R'(\hat{x}_{k} - \hat{x}_{k-1} - Bu_{k})= z_{k} - \hat{x}_{k}$
+\end{center}
+
+Agora temos que descobrir $R'$, usando três valores para $u_{k}$:
+
+\begin{center}
+$u_{k} = \begin{bmatrix}
+       1           \\[0.3em]
+       0\\[0.3em]
+       0 
+     \end{bmatrix}$, 
+$u_{k} = \begin{bmatrix}
+       0           \\[0.3em]
+       1\\[0.3em]
+       0 
+     \end{bmatrix}$ e
+$u_{k} = \begin{bmatrix}
+       0           \\[0.3em]
+       0\\[0.3em]
+       1 
+     \end{bmatrix}$
+\end{center}
+
+
+%$M = \begin{bmatrix}
+%       \frac{5}{6}           \\[0.3em]
+%       \frac{5}{6}\\[0.3em]
+%       0 
+%     \end{bmatrix}$
+
+
+\end{document}
+
