@@ -309,7 +309,7 @@
 		</Var>
 		<Var name="Yellow Team" type="list">
 			<Var name="Team" type="stringenum">
-				Standard2010
+				Parsian
 				<Var name="0" type="string">
 					Standard2010
 				</Var>
@@ -416,12 +416,12 @@
 				<Var name="reset bus" type="trigger">
 				</Var>
 				<Var name="auto refresh params" type="bool">
-					true
+					false
 				</Var>
 				<Var name="re-read params" type="trigger">
 				</Var>
 				<Var name="Capture Module" type="stringenum">
-					Video 4 Linux
+					DC 1394
 					<Var name="0" type="string">
 						DC 1394
 					</Var>
@@ -451,7 +451,7 @@
 						true
 					</Var>
 					<Var name="de-bayer pattern" type="stringenum">
-						gbrg
+						rggb
 						<Var name="0" type="string">
 							rggb
 						</Var>
@@ -466,7 +466,7 @@
 						</Var>
 					</Var>
 					<Var name="de-bayer method" type="stringenum">
-						nearest
+						simple
 						<Var name="0" type="string">
 							nearest
 						</Var>
@@ -501,13 +501,13 @@
 						0
 					</Var>
 					<Var name="framerate" type="int" minval="" maxval="">
-						30
+						60
 					</Var>
 					<Var name="width" type="int" minval="" maxval="">
-						1024
+						640
 					</Var>
 					<Var name="height" type="int" minval="" maxval="">
-						768
+						480
 					</Var>
 					<Var name="left" type="int" minval="" maxval="">
 						0
@@ -579,7 +579,7 @@
 						</Var>
 					</Var>
 					<Var name="use 1394B" type="bool">
-						true
+						false
 					</Var>
 					<Var name="use ISO800" type="bool">
 						false
@@ -599,7 +599,7 @@
 						<Var name="one-push" type="trigger">
 						</Var>
 						<Var name="value" type="int" minval="0" maxval="255">
-							0
+							10
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -620,8 +620,8 @@
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value" type="int" minval="0" maxval="2000">
-							800
+						<Var name="value" type="int" minval="50" maxval="205">
+							100
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -660,15 +660,15 @@
 							true
 						</Var>
 						<Var name="auto" type="bool">
-							true
+							false
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value U" type="int" minval="0" maxval="95">
-							78
+						<Var name="value U" type="int" minval="0" maxval="1022">
+							756
 						</Var>
 						<Var name="value V" type="int" minval="" maxval="">
-							25
+							556
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -699,7 +699,7 @@
 							0,000000
 						</Var>
 						<Var name="was_read" type="bool">
-							true
+							false
 						</Var>
 					</Var>
 					<Var name="saturation" type="list">
@@ -721,20 +721,20 @@
 							0,000000
 						</Var>
 						<Var name="was_read" type="bool">
-							true
+							false
 						</Var>
 					</Var>
 					<Var name="gamma" type="list">
 						<Var name="enabled" type="bool">
-							true
+							false
 						</Var>
 						<Var name="auto" type="bool">
 							false
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value" type="int" minval="10" maxval="22">
-							10
+						<Var name="value" type="int" minval="0" maxval="1">
+							0
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -751,12 +751,12 @@
 							true
 						</Var>
 						<Var name="auto" type="bool">
-							true
+							false
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value" type="int" minval="1" maxval="4000">
-							30
+						<Var name="value" type="int" minval="1" maxval="4095">
+							112
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -773,18 +773,18 @@
 							true
 						</Var>
 						<Var name="auto" type="bool">
-							true
+							false
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value" type="int" minval="180" maxval="1023">
-							581
+						<Var name="value" type="int" minval="0" maxval="680">
+							400
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
 						</Var>
-						<Var name="absolute value" type="double" minval="" maxval="">
-							0,000000
+						<Var name="absolute value" type="double" minval="0,000000" maxval="23,868000">
+							14,040001
 						</Var>
 						<Var name="was_read" type="bool">
 							true
@@ -875,7 +875,7 @@
 							0,000000
 						</Var>
 						<Var name="was_read" type="bool">
-							false
+							true
 						</Var>
 					</Var>
 					<Var name="trigger delay" type="list">
@@ -887,17 +887,17 @@
 						</Var>
 						<Var name="one-push" type="trigger">
 						</Var>
-						<Var name="value" type="int" minval="" maxval="">
-							0
+						<Var name="value" type="int" minval="1" maxval="4095">
+							1
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
 						</Var>
-						<Var name="absolute value" type="double" minval="" maxval="">
-							0,000000
+						<Var name="absolute value" type="double" minval="0,000001" maxval="2,097152">
+							0,000020
 						</Var>
 						<Var name="was_read" type="bool">
-							false
+							true
 						</Var>
 					</Var>
 					<Var name="white shading" type="list">
@@ -1202,37 +1202,37 @@
 		<Var name="Camera Calibrator" type="list">
 			<Var name="Camera Parameters" type="list">
 				<Var name="focal length" type="double" minval="" maxval="">
-					687,447937
+					563,896529
 				</Var>
 				<Var name="principal point x" type="double" minval="" maxval="">
-					258,324587
+					193,239622
 				</Var>
 				<Var name="principal point y" type="double" minval="" maxval="">
-					446,627028
+					231,479162
 				</Var>
 				<Var name="distortion" type="double" minval="0,000000" maxval="2,000000">
-					0,000000
+					0,820000
 				</Var>
 				<Var name="q0" type="double" minval="" maxval="">
-					0,720253
+					-0,012926
 				</Var>
 				<Var name="q1" type="double" minval="" maxval="">
-					-0,693700
+					-0,988397
 				</Var>
 				<Var name="q2" type="double" minval="" maxval="">
-					0,002295
+					-0,011057
 				</Var>
 				<Var name="q3" type="double" minval="" maxval="">
-					0,003098
+					0,150935
 				</Var>
 				<Var name="tx" type="double" minval="" maxval="">
-					153,845152
+					-5,303049
 				</Var>
 				<Var name="ty" type="double" minval="" maxval="">
-					-1903,769531
+					59,781337
 				</Var>
 				<Var name="tz" type="double" minval="0,000000" maxval="5000,000000">
-					3500,000000
+					3239,000000
 				</Var>
 			</Var>
 			<Var name="Calibration Parameters" type="list">
@@ -1241,10 +1241,10 @@
 						Control point 0
 					</Var>
 					<Var name="Control point 0 image x" type="double" minval="" maxval="">
-						23,000000
+						205,000000
 					</Var>
 					<Var name="Control point 0 image y" type="double" minval="" maxval="">
-						68,000000
+						444,000000
 					</Var>
 					<Var name="Control point 0 field x" type="double" minval="" maxval="">
 						0,000000
@@ -1258,10 +1258,10 @@
 						Control point 1
 					</Var>
 					<Var name="Control point 1 image x" type="double" minval="" maxval="">
-						553,000000
+						192,000000
 					</Var>
 					<Var name="Control point 1 image y" type="double" minval="" maxval="">
-						88,000000
+						31,000000
 					</Var>
 					<Var name="Control point 1 field x" type="double" minval="" maxval="">
 						0,000000
@@ -1275,10 +1275,10 @@
 						Control point 2
 					</Var>
 					<Var name="Control point 2 image x" type="double" minval="" maxval="">
-						534,000000
+						449,000000
 					</Var>
 					<Var name="Control point 2 image y" type="double" minval="" maxval="">
-						407,000000
+						22,000000
 					</Var>
 					<Var name="Control point 2 field x" type="double" minval="" maxval="">
 						-1680,000000
@@ -1292,10 +1292,10 @@
 						Control point 3
 					</Var>
 					<Var name="Control point 3 image x" type="double" minval="" maxval="">
-						20,000000
+						454,000000
 					</Var>
 					<Var name="Control point 3 image y" type="double" minval="" maxval="">
-						387,000000
+						442,000000
 					</Var>
 					<Var name="Control point 3 field x" type="double" minval="" maxval="">
 						-1680,000000
@@ -1308,10 +1308,10 @@
 					1,000000
 				</Var>
 				<Var name="camera height" type="double" minval="" maxval="">
-					4000,000000
+					3239,000000
 				</Var>
 				<Var name="line search corridor width" type="double" minval="" maxval="">
-					280,000000
+					277,000000
 				</Var>
 				<Var name="Image boundary for edge detection" type="double" minval="" maxval="">
 					10,000000
@@ -1372,7 +1372,7 @@
 				true
 			</Var>
 			<Var name="detected edges" type="bool">
-				true
+				false
 			</Var>
 			<Var name="complete edge detection" type="bool">
 				false
@@ -1398,7 +1398,7 @@
 				<Var name="re-read params" type="trigger">
 				</Var>
 				<Var name="Capture Module" type="stringenum">
-					Video 4 Linux
+					DC 1394
 					<Var name="0" type="string">
 						DC 1394
 					</Var>
