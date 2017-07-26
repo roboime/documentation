@@ -501,7 +501,7 @@
 						0
 					</Var>
 					<Var name="framerate" type="int" minval="" maxval="">
-						60
+						30
 					</Var>
 					<Var name="width" type="int" minval="" maxval="">
 						640
@@ -621,7 +621,7 @@
 						<Var name="one-push" type="trigger">
 						</Var>
 						<Var name="value" type="int" minval="50" maxval="205">
-							100
+							102
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -665,10 +665,10 @@
 						<Var name="one-push" type="trigger">
 						</Var>
 						<Var name="value U" type="int" minval="0" maxval="1022">
-							756
+							794
 						</Var>
 						<Var name="value V" type="int" minval="" maxval="">
-							556
+							572
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -756,7 +756,7 @@
 						<Var name="one-push" type="trigger">
 						</Var>
 						<Var name="value" type="int" minval="1" maxval="4095">
-							112
+							110
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
@@ -778,13 +778,13 @@
 						<Var name="one-push" type="trigger">
 						</Var>
 						<Var name="value" type="int" minval="0" maxval="680">
-							400
+							382
 						</Var>
 						<Var name="use absolute" type="bool">
 							false
 						</Var>
 						<Var name="absolute value" type="double" minval="0,000000" maxval="23,868000">
-							14,040001
+							13,408200
 						</Var>
 						<Var name="was_read" type="bool">
 							true
@@ -1363,7 +1363,7 @@
 				false
 			</Var>
 			<Var name="blobs" type="bool">
-				true
+				false
 			</Var>
 			<Var name="camera calibration" type="bool">
 				true
